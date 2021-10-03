@@ -6,7 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon",
-    "dbcreate": "createdb --echo super_team_picker"
+    "init":"npm init",
+    "install": "npm i ejs express knex method-override pg",
+    "install-d": "npm i -D concurrently faker http-server morgan nodemon",
+    "dbcreate": "createdb --echo super_team_picker",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
+    "demo_image": "concurrently \"npm start\" \"xdg-open http://localhost:5000/cohorts/demo/0 \"",
+    "backup":"pg_dump -U harry -F c -b -v -f \"db/seeds/demo_data_backup\" super_team_picker",
+    "restore":"pg_restore -U harry super_team_picker -v \"db/seeds/demo_data_backup\""
   },
   "keywords": [
     "Homework",
@@ -19,12 +27,14 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "faker": "^5.5.3",
     "knex": "^0.95.11",
     "method-override": "^3.0.0",
     "pg": "^8.7.1"
   },
   "devDependencies": {
+    "concurrently": "^6.3.0",
+    "faker": "^5.5.3",
+    "http-server": "^13.0.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13"
   }

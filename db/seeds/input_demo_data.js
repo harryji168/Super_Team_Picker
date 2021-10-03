@@ -17,7 +17,7 @@ exports.seed = function(knex) {
           { 
             name: faker.company.companyName(), 
             members: members_string, 
-            logoUrl: faker.image.imageUrl()+i,
+            logoUrl: faker.image.imageUrl(),
           },
         )
       };

@@ -20,10 +20,10 @@ app.use(logger('dev'));
 app.set('view engine', 'ejs');
 app.use("/cohorts", cohortsRouter);
 
-
 app.get('/', function (request, response) {   
     response.render('home', { pageTitle: "Super Team Picker Home" } );
 });
+
 
 const PORT = 5000;
 const ADDRESS = '127.0.0.1';
